@@ -107,17 +107,6 @@
         become: true
         apt:
           name: code
-      - name: Install Virtual Studio Code Extensions
-        shell:
-          cmd: code --install-extension '{{ item }}' 
-        loop: 
-          - ms-python.python
-          - ms-azuretools.vscode-docker
-          - bbenoist.vagrant
-          - hashicorp.terraform
-          - gruntfuggly.todo-tree
-          - njpwerner.autodocstring
-          - eamodio.gitlens
 
     - block: 
       - name: Install Docker Key
