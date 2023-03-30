@@ -148,7 +148,7 @@
           dest: '/etc/bash_completion.d/docker-compose'
         
     - block:
-      - name: Installing Kubectl 1.22.0
+      - name: Installing Kubectl 1.26.0
         become: true
         get_url:    
           url: 'https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl'
