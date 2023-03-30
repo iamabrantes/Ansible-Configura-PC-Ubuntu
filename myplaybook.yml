@@ -1,5 +1,5 @@
 ---
-- name: Preparando Estacao
+- name: Ansible-Install-Apps-Iamabrantes
   hosts: localhost
   connection: local
   tasks:
@@ -41,18 +41,18 @@
           executable: pip3
 
     - block:
-      - name: Install Google Key
+      - name: Installing Google Key
         become: true
         apt_key: 
           url: 'https://dl.google.com/linux/linux_signing_key.pub'
           state: present
-      - name: Install Google Repository
+      - name: Installing Google Repository
         become: true
         apt_repository:
           repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
           state: present
           filename: google-chrome
-      - name: Install Google Chrome
+      - name: Installing Google Chrome
         become: true
         apt:
           name: google-chrome-stable
@@ -74,30 +74,30 @@
           remote_src: yes
 
     - block:
-      - name: Install Google Cloud SDK Key
+      - name: Installing Google Cloud SDK Key
         become: true
         apt_key:
           url: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'
           state: present
-      - name: Install Google Cloud SDK Repository
+      - name: Installing Google Cloud SDK Repository
         become: true
         apt_repository:
           repo: 'deb [arch=amd64] https://packages.cloud.google.com/apt cloud-sdk main'
           state: present
           filename: google-cloud-sdk
-      - name: Install Google Cloud SDK
+      - name: Installing Google Cloud SDK
         become: true
         apt:
           name: google-cloud-sdk
 
           
     - block:
-      - name: Install Microsoft Key
+      - name: Installing Microsoft Key
         become: true
         apt_key:
           url: 'https://packages.microsoft.com/keys/microsoft.asc'
           state: present
-      - name: Install VSCode Repository
+      - name: Installing VSCode Repository
         become: true
         apt_repository:
           repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
@@ -109,18 +109,18 @@
           name: code
 
     - block: 
-      - name: Install Docker Key
+      - name: Installing Docker Key
         become: true
         apt_key:
           url: 'https://download.docker.com/linux/ubuntu/gpg'
           state: present
-      - name: Install Docker Repository
+      - name: Installing Docker Repository
         become: true
         apt_repository:
           repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable'
           state: present
           filename: docker-ce
-      - name: Install Docker
+      - name: Installing Docker
         become: true
         apt:
           name: docker-ce
@@ -130,18 +130,18 @@
           name: '{{ ansible_user_id }}'
           groups: docker 
           append: yes
-      - name: Install Docker-Compose
+      - name: Installing Docker-Compose
         become: true
         get_url:
           url: 'https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-linux-x86_64'
           dest: '/usr/local/bin/docker-compose'
           mode: 755
-      - name: Install Docker Machine Bash Completion
+      - name: Installing Docker Machine Bash Completion
         become: true
         get_url:
           url: 'https://raw.githubusercontent.com/docker/machine/v0.16.0/contrib/completion/bash/docker-machine.bash'
           dest: '/etc/bash_completion.d/docker-machine'
-      - name: Install Docker-Compose Bash Completion
+      - name: Installing Docker-Compose Bash Completion
         become: true
         get_url:
           url: 'https://raw.githubusercontent.com/docker/compose/1.26.2/contrib/completion/bash/docker-compose'
@@ -174,17 +174,17 @@
         become: true
         apt_repository:
           repo: 'ppa:longsleep/golang-backports'
-      - name: Install Golang 
+      - name: Installing Golang 
         become: true
         apt:
           name: golang-go
 
     - block:
-      - name: Install obsproject Ubuntu Repo
+      - name: Installing obsproject Ubuntu Repo
         become: true
         apt_repository:
           repo: 'ppa:obsproject/obs-studio'
-      - name: Install obs Studio
+      - name: Installing obs Studio
         become: true
         apt:
           name: obs-studio
@@ -194,7 +194,7 @@
         become: true
         apt_repository:
           repo: 'ppa:agornostal/ulauncher'
-      - name: Install Ulauncher
+      - name: Installing Ulauncher
         become: true
         apt:
           name: ulauncher
