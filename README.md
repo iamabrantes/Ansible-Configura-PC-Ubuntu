@@ -16,7 +16,7 @@ sudo apt update && sudo apt install ansible unzip git -y
 ```
 2. Clone this repository
 ```bash
-git clone https://github.com/jonathanabrantes/Ansible-Configura-PC-Ubuntu.git
+git clone https://github.com/iamabrantes/Ansible-Configura-PC-Ubuntu.git
 ```
 
 3. Apply the configuration
