@@ -198,3 +198,11 @@
         become: true
         apt:
           name: ulauncher
+
+    - block:    
+      - name: Criar diretório autostart do gnome
+        shell: mkdir -p ~/.config/autostart/     
+      - name: Copiar arquivo Flameshot para autostart
+        copy: 
+          src: ./Flameshot.desktop
+          dest: ~/.config/autostart/Flameshot.desktop
