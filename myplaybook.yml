@@ -15,6 +15,7 @@
           - htop
           - curl
           - wget
+          - notepadqq
           - ncdu
           - tree
           - apt-transport-https
